@@ -1,6 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import { Loader } from '../Loader/Loader';
 
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
@@ -11,9 +12,13 @@ import { selectContacts, selectIsLoading, selectError } from 'redux/selectors';
 
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
-import { Loader } from '../Loader/Loader';
 
-import { Container, TitlePhonebook, TitleContacts } from './App.styled';
+import {
+  Container,
+  PhonebookIcon,
+  TitlePhonebook,
+  TitleContacts,
+} from './App.styled';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -33,7 +38,10 @@ export const App = () => {
 
   return (
     <Container>
-      <TitlePhonebook title="Phonebook">Phonebook</TitlePhonebook>
+      <TitlePhonebook title="Phonebook">
+        <PhonebookIcon />
+        Phonebook
+      </TitlePhonebook>
       {isLoading && <Loader />}
       <ContactForm />
 
